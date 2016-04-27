@@ -1,7 +1,7 @@
 {
   "general": {
     "watermark": {"imageResource": {"url": "//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/assets/images/ooyala-watermark.png","androidResource" : "logo","iosResource" : "logo"  } },
-    "loadingImage": {"imageResource": {"url": "//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/assets/images/loader_svg.svg" } }
+    "loadingImage": {"imageResource": {"url": "/oo_player/assets/images/loader_svg.svg" } }
   },
   "localization": {
     "defaultLanguage": "en",
@@ -107,7 +107,7 @@
   },
   "shareScreen": {
     "embed": {
-      "source": "<iframe width='640' height='480' frameborder='0' allowfullscreen src='//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/iframe.html?ec=<ASSET_ID>&pbid=<PLAYER_ID>&pcode=<PUBLISHER_ID>'></iframe>"
+      "source": "<iframe width='640' height='480' frameborder='0' allowfullscreen src='//www.tetongravity.com/video/embed/<ASSET_ID>'></iframe>"
     }
   },
   "moreOptionsScreen": {
@@ -152,8 +152,8 @@
     "autoHide": true,
     "height": 60,
     "watermark": {
-      "imageResource": {"url": "//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/assets/images/ooyala.png","androidResource" : "logo","iosResource" : "logo"},
-      "clickUrl": "http://www.ooyala.com/",
+      "imageResource": {"url": "//www.tetongravity.com/images/teton-logo.png","androidResource" : "logo","iosResource" : "logo"},
+      "clickUrl": "http://www.tetongravity.com/",
       "width": 500,
       "height": 81
     },
@@ -179,7 +179,7 @@
       {"name":"discovery", "location":"controlBar", "whenDoesNotFit":"moveToMoreOptions", "minWidth":35 },
       {"name":"closedCaption", "location":"controlBar", "whenDoesNotFit":"moveToMoreOptions", "minWidth":35 },
       {"name":"quality", "location":"controlBar", "whenDoesNotFit":"moveToMoreOptions", "minWidth":35 },
-      {"name":"watermark", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":130 },
+      {"name":"watermark", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":60 },
       {"name":"fullscreen", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":35 },
       {"name":"moreOptions", "location":"controlBar", "whenDoesNotFit":"keep", "minWidth":35 }
     ],
