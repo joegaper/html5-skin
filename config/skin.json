@@ -8,19 +8,19 @@
     "availableLanguageFile": [
       {
         "language": "en",
-        "languageFile": "//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/en.json",
+        "languageFile": "/player/config/en.json",
         "androidResource": "skin-config/en.json",
         "iosResource": "en"
       },
       {
         "language": "es",
-        "languageFile": "//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/es.json",
+        "languageFile": "/player/config/es.json",
         "androidResource": "skin-config/es.json",
         "iosResource": "es"
       },
       {
         "language": "zh",
-        "languageFile": "//player.ooyala.com/static/v4/stable/4.1.4/skin-plugin/zh.json",
+        "languageFile": "/player/config/zh.json",
         "androidResource": "skin-config/zh.json",
         "iosResource": "zh"
       }
@@ -76,7 +76,7 @@
   },
   "adScreen": {
     "showAdMarquee": true,
-    "showControlBar": false
+    "showControlBar": true
   },
   "discoveryScreen": {
     "panelTitle": {

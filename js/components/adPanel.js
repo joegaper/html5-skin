@@ -59,16 +59,16 @@ var AdPanel = React.createClass({
     // // Ad title
     var adTitle = this.props.currentAdsInfo.currentAdItem.name;
     // AMC puts "Unknown" in the name field if ad name unavailable
-    if (this.isValidAdPlaybackInfo(adTitle) && this.props.componentWidth > 560) {
+    if (this.isValidAdPlaybackInfo(adTitle) && this.props.componentWidth > 560 && false) {
       var adTitleDiv = <AdPanelTopBarItem key="adTitle" ref="adTitle" itemClassName="adTitle">{adTitle}</AdPanelTopBarItem>;
       adTopBarItems.push(adTitleDiv);
     }
 
     // Ad playback Info
-    var adPlaybackInfo = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.AD, this.props.localizableStrings);
+    var adPlaybackInfo = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ADVERTISEMENT, this.props.localizableStrings);
     var currentAdIndex = this.props.currentAdsInfo.currentAdItem.indexInPod;
     var totalNumberOfAds = this.props.currentAdsInfo.numberOfAds;
-    if (this.isValidAdPlaybackInfo(currentAdIndex) && this.isValidAdPlaybackInfo(totalNumberOfAds)) {
+    if (this.isValidAdPlaybackInfo(currentAdIndex) && this.isValidAdPlaybackInfo(totalNumberOfAds) && false) {
       adPlaybackInfo = adPlaybackInfo + ": (" + currentAdIndex + "/" + totalNumberOfAds + ")";
     }
 

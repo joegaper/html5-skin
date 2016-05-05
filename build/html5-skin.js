@@ -188,16 +188,16 @@ var AdPanel = React.createClass({displayName: "AdPanel",
     // // Ad title
     var adTitle = this.props.currentAdsInfo.currentAdItem.name;
     // AMC puts "Unknown" in the name field if ad name unavailable
-    if (this.isValidAdPlaybackInfo(adTitle) && this.props.componentWidth > 560) {
+    if (this.isValidAdPlaybackInfo(adTitle) && this.props.componentWidth > 560 && false) {
       var adTitleDiv = React.createElement(AdPanelTopBarItem, {key: "adTitle", ref: "adTitle", itemClassName: "adTitle"}, adTitle);
       adTopBarItems.push(adTitleDiv);
     }
 
     // Ad playback Info
-    var adPlaybackInfo = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.AD, this.props.localizableStrings);
+    var adPlaybackInfo = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.ADVERTISEMENT, this.props.localizableStrings);
     var currentAdIndex = this.props.currentAdsInfo.currentAdItem.indexInPod;
     var totalNumberOfAds = this.props.currentAdsInfo.numberOfAds;
-    if (this.isValidAdPlaybackInfo(currentAdIndex) && this.isValidAdPlaybackInfo(totalNumberOfAds)) {
+    if (this.isValidAdPlaybackInfo(currentAdIndex) && this.isValidAdPlaybackInfo(totalNumberOfAds) && false) {
       adPlaybackInfo = adPlaybackInfo + ": (" + currentAdIndex + "/" + totalNumberOfAds + ")";
     }
 
@@ -2779,6 +2779,7 @@ module.exports = {
     CLOSED_CAPTION_PREVIEW: "CLOSED CAPTION PREVIEW",
     SAMPLE_TEXT: "Sample Text",
     AD: "Ad",
+    ADVERTISEMENT: "Advertisement",
     SKIP_AD: "Skip Ad",
     LIVE: "LIVE",
     GO_LIVE: "GO LIVE",
@@ -3001,7 +3002,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin_version = "04cf36283ce605074607c126f1dcb87bd1c8ebc0";
+    OO.publicApi.VERSION.skin_version = "1c3f73670a1cceb91c73acd02eb7b120aa494078";
   }
 
   var Html5Skin = function (mb, id) {

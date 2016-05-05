@@ -31,6 +31,7 @@ module.exports = {
     CLOSED_CAPTION_PREVIEW: "CLOSED CAPTION PREVIEW",
     SAMPLE_TEXT: "Sample Text",
     AD: "Ad",
+    ADVERTISEMENT: "Advertisement",
     SKIP_AD: "Skip Ad",
     LIVE: "LIVE",
     GO_LIVE: "GO LIVE",
