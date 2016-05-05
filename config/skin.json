@@ -55,14 +55,14 @@
     "showPromo": true
   },
   "pauseScreen": {
-    "showPauseIcon": true,
+    "showPauseIcon": false,
     "pauseIconPosition": "center",
     "PauseIconStyle": {
       "color": "white",
       "opacity": 1
     },
-    "showTitle": true,
-    "showDescription": true,
+    "showTitle": false,
+    "showDescription": false,
     "infoPanelPosition": "topLeft",
     "screenToShowOnPause": "default"
   },

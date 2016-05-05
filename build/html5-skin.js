@@ -3002,7 +3002,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin_version = "1c3f73670a1cceb91c73acd02eb7b120aa494078";
+    OO.publicApi.VERSION.skin_version = "7d4013483fbcbb3ef7d997943ea02a8984e999c0";
   }
 
   var Html5Skin = function (mb, id) {
@@ -5180,8 +5180,8 @@ var PauseScreen = React.createClass({displayName: "PauseScreen",
       React.createElement("div", {className: "state-screen pauseScreen"}, 
         React.createElement("div", {className: fadeUnderlayClass}), 
         React.createElement("div", {className: infoPanelClass}, 
-          this.props.skinConfig.startScreen.showTitle ? titleMetadata : null, 
-          this.props.skinConfig.startScreen.showDescription ? descriptionMetadata : null
+          this.props.skinConfig.pauseScreen.showTitle ? titleMetadata : null, 
+          this.props.skinConfig.pauseScreen.showDescription ? descriptionMetadata : null
         ), 
 
         React.createElement("a", {className: "state-screen-selectable", onClick: this.handleClick}), 
@@ -5192,8 +5192,8 @@ var PauseScreen = React.createClass({displayName: "PauseScreen",
 
         React.createElement(AdOverlay, React.__spread({},  this.props, 
           {overlay: this.props.controller.state.adOverlayUrl, 
-          showOverlay: this.props.controller.state.showAdOverlay, 
-          showOverlayCloseButton: this.props.controller.state.showAdOverlayCloseButton, 
+          showOverlay: false, 
+          showOverlayCloseButton: true, 
           controlBarVisible: this.state.controlBarVisible})
         ), 
         React.createElement(ScrubberBar, React.__spread({},  this.props, 

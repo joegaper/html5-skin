@@ -2380,11 +2380,6 @@
   overflow: hidden;
   z-index: 11000; }
 
-.innerWrapper video.blur {
-  -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  filter: blur(3px); }
-
 #video_container {
   display: inline !important;
   margin: 0 !important; }
