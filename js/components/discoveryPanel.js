@@ -114,7 +114,7 @@ var DiscoveryPanel = React.createClass({
     var relatedVideoPage = relatedVideos.slice(startAt, endAt);
 
     // discovery content
-    var panelTitle = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.DISCOVER, this.props.localizableStrings);
+    var panelTitle = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.RELATED_CONTENT, this.props.localizableStrings);
     var discoveryContentName = ClassNames({
       'discoveryContentName': true,
       'hidden': !this.props.skinConfig.discoveryScreen.contentTitle.show

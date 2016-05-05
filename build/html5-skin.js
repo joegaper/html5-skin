@@ -1326,7 +1326,7 @@ var DiscoveryPanel = React.createClass({displayName: "DiscoveryPanel",
     var relatedVideoPage = relatedVideos.slice(startAt, endAt);
 
     // discovery content
-    var panelTitle = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.DISCOVER, this.props.localizableStrings);
+    var panelTitle = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.RELATED_CONTENT, this.props.localizableStrings);
     var discoveryContentName = ClassNames({
       'discoveryContentName': true,
       'hidden': !this.props.skinConfig.discoveryScreen.contentTitle.show
@@ -1919,7 +1919,8 @@ var SharePanel = React.createClass({displayName: "SharePanel",
     if (this.state.activeTab === this.tabs.SHARE) {
       var titleString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.SHARE_CALL_TO_ACTION, this.props.localizableStrings);
       var startAtString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.START_AT, this.props.localizableStrings);
-
+      var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
+      
       return (
         React.createElement("div", {className: "shareTabPanel"}, 
           React.createElement("div", {className: "social-action-text text-capitalize"}, titleString), 
@@ -1932,7 +1933,7 @@ var SharePanel = React.createClass({displayName: "SharePanel",
           React.createElement("form", {className: "form-inline"}, 
             React.createElement("div", {className: "form-group"}, 
               React.createElement("label", {className: "sr-only", htmlFor: "oo-url"}, "url"), 
-              React.createElement("input", {className: "form-control", type: "url", defaultValue: location.href, id: "oo-url"})
+              React.createElement("input", {className: "form-control", type: "url", defaultValue: hostURL, id: "oo-url"})
             ), 
 
             React.createElement("label", {className: "checkbox-inline"}, 
@@ -2787,6 +2788,7 @@ module.exports = {
     ON: "On",
     OFF: "Off",
     DISCOVER: "Discover",
+    RELATED_CONTENT: "Related Content",
     UP_NEXT: "Up next",
     SHARE_CALL_TO_ACTION: "Invest In Social Change",
     SHARE: "Share",
@@ -3002,7 +3004,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin_version = "7d4013483fbcbb3ef7d997943ea02a8984e999c0";
+    OO.publicApi.VERSION.skin_version = "ee6e325b1d3a68fa5a4f44465c663e9697062610";
   }
 
   var Html5Skin = function (mb, id) {
@@ -5192,8 +5194,8 @@ var PauseScreen = React.createClass({displayName: "PauseScreen",
 
         React.createElement(AdOverlay, React.__spread({},  this.props, 
           {overlay: this.props.controller.state.adOverlayUrl, 
-          showOverlay: false, 
-          showOverlayCloseButton: true, 
+          showOverlay: this.props.controller.state.showAdOverlay, 
+          showOverlayCloseButton: this.props.controller.state.showAdOverlayCloseButton, 
           controlBarVisible: this.state.controlBarVisible})
         ), 
         React.createElement(ScrubberBar, React.__spread({},  this.props, 

@@ -26,7 +26,8 @@ var SharePanel = React.createClass({
     if (this.state.activeTab === this.tabs.SHARE) {
       var titleString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.SHARE_CALL_TO_ACTION, this.props.localizableStrings);
       var startAtString = Utils.getLocalizedString(this.props.language, CONSTANTS.SKIN_TEXT.START_AT, this.props.localizableStrings);
-
+      var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
+      
       return (
         <div className="shareTabPanel">
           <div className="social-action-text text-capitalize">{titleString}</div>
@@ -39,7 +40,7 @@ var SharePanel = React.createClass({
           <form className="form-inline">
             <div className="form-group">
               <label className="sr-only" htmlFor="oo-url">url</label>
-              <input className="form-control" type='url' defaultValue={location.href} id="oo-url"/>
+              <input className="form-control" type='url' defaultValue={hostURL} id="oo-url"/>
             </div>
 
             <label className="checkbox-inline">
