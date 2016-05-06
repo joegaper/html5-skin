@@ -1982,20 +1982,23 @@ var SharePanel = React.createClass({displayName: "SharePanel",
 
   handleFacebookClick: function() {
     var facebookUrl = "http://www.facebook.com/sharer.php";
-    facebookUrl += "?u=" + encodeURIComponent(location.href);
+    var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
+    facebookUrl += "?u=" + encodeURIComponent(hostURL);
     window.open(facebookUrl, "facebook window", "height=315,width=780");
   },
 
   handleGPlusClick: function() {
     var gPlusUrl = "https://plus.google.com/share";
-    gPlusUrl += "?url=" + encodeURIComponent(location.href);
+    var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
+    gPlusUrl += "?url=" + encodeURIComponent(hostURL);
     window.open(gPlusUrl, "google+ window", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
   },
 
   handleTwitterClick: function() {
     var twitterUrl = "https://twitter.com/intent/tweet";
+    var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
     twitterUrl += "?text=" + encodeURIComponent(this.props.contentTree.title+": ");
-    twitterUrl += "&url=" + encodeURIComponent(location.href);
+    twitterUrl += "&url=" + encodeURIComponent(hostURL);
     window.open(twitterUrl, "twitter window", "height=300,width=750");
   },
 
@@ -3004,7 +3007,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin_version = "245f4acac7cde22c2ad1d95d70330dc650da2c64";
+    OO.publicApi.VERSION.skin_version = "11e41b0e6a0bf9c4465d6c19b530e1beb47ee6b5";
   }
 
   var Html5Skin = function (mb, id) {
@@ -4028,8 +4031,6 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     sendDiscoveryClickEvent: function(selectedContentData, isAutoUpNext) {
       this.state.upNextInfo.showing = false;
       if (isAutoUpNext){
-      	console.log(selectedContentData.clickedVideo.hostedAtURL);
-      	
       	if (selectedContentData.clickedVideo.hostedAtURL != "")
       	{
       		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
@@ -4041,8 +4042,6 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
         }
       }
       else {
-      	console.log(selectedContentData.clickedVideo.hostedAtURL);
-      	
       	if (selectedContentData.clickedVideo.hostedAtURL != "")
       	{
       		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;

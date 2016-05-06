@@ -89,20 +89,23 @@ var SharePanel = React.createClass({
 
   handleFacebookClick: function() {
     var facebookUrl = "http://www.facebook.com/sharer.php";
-    facebookUrl += "?u=" + encodeURIComponent(location.href);
+    var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
+    facebookUrl += "?u=" + encodeURIComponent(hostURL);
     window.open(facebookUrl, "facebook window", "height=315,width=780");
   },
 
   handleGPlusClick: function() {
     var gPlusUrl = "https://plus.google.com/share";
-    gPlusUrl += "?url=" + encodeURIComponent(location.href);
+    var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
+    gPlusUrl += "?url=" + encodeURIComponent(hostURL);
     window.open(gPlusUrl, "google+ window", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");
   },
 
   handleTwitterClick: function() {
     var twitterUrl = "https://twitter.com/intent/tweet";
+    var hostURL = (this.props.contentTree.hostedAtURL != "") ? this.props.contentTree.hostedAtURL : parent.location.href;
     twitterUrl += "?text=" + encodeURIComponent(this.props.contentTree.title+": ");
-    twitterUrl += "&url=" + encodeURIComponent(location.href);
+    twitterUrl += "&url=" + encodeURIComponent(hostURL);
     window.open(twitterUrl, "twitter window", "height=300,width=750");
   },
 
