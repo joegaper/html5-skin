@@ -3004,7 +3004,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin_version = "ee6e325b1d3a68fa5a4f44465c663e9697062610";
+    OO.publicApi.VERSION.skin_version = "245f4acac7cde22c2ad1d95d70330dc650da2c64";
   }
 
   var Html5Skin = function (mb, id) {
@@ -4028,15 +4028,33 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     sendDiscoveryClickEvent: function(selectedContentData, isAutoUpNext) {
       this.state.upNextInfo.showing = false;
       if (isAutoUpNext){
-        this.state.upNextInfo.delayedContentData = selectedContentData;
-        this.state.upNextInfo.delayedSetEmbedCodeEvent = true;
+      	console.log(selectedContentData.clickedVideo.hostedAtURL);
+      	
+      	if (selectedContentData.clickedVideo.hostedAtURL != "")
+      	{
+      		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
+      	}
+      	else
+      	{
+        	this.state.upNextInfo.delayedContentData = selectedContentData;
+        	this.state.upNextInfo.delayedSetEmbedCodeEvent = true;
+        }
       }
       else {
-        this.state.screenToShow = CONSTANTS.SCREEN.LOADING_SCREEN;
-        this.renderSkin();
-        this.mb.publish(OO.EVENTS.PAUSE);
-        this.mb.publish(OO.EVENTS.SET_EMBED_CODE, selectedContentData.clickedVideo.embed_code);
-        this.mb.publish(OO.EVENTS.DISCOVERY_API.SEND_CLICK_EVENT, selectedContentData);
+      	console.log(selectedContentData.clickedVideo.hostedAtURL);
+      	
+      	if (selectedContentData.clickedVideo.hostedAtURL != "")
+      	{
+      		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
+      	}
+      	else
+      	{
+		    this.state.screenToShow = CONSTANTS.SCREEN.LOADING_SCREEN;
+		    this.renderSkin();
+		    this.mb.publish(OO.EVENTS.PAUSE);
+		    this.mb.publish(OO.EVENTS.SET_EMBED_CODE, selectedContentData.clickedVideo.embed_code);
+		    this.mb.publish(OO.EVENTS.DISCOVERY_API.SEND_CLICK_EVENT, selectedContentData);
+        }
       }
     },
 

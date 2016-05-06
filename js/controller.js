@@ -1042,15 +1042,29 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     sendDiscoveryClickEvent: function(selectedContentData, isAutoUpNext) {
       this.state.upNextInfo.showing = false;
       if (isAutoUpNext){
-        this.state.upNextInfo.delayedContentData = selectedContentData;
-        this.state.upNextInfo.delayedSetEmbedCodeEvent = true;
+      	if (selectedContentData.clickedVideo.hostedAtURL != "")
+      	{
+      		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
+      	}
+      	else
+      	{
+        	this.state.upNextInfo.delayedContentData = selectedContentData;
+        	this.state.upNextInfo.delayedSetEmbedCodeEvent = true;
+        }
       }
       else {
-        this.state.screenToShow = CONSTANTS.SCREEN.LOADING_SCREEN;
-        this.renderSkin();
-        this.mb.publish(OO.EVENTS.PAUSE);
-        this.mb.publish(OO.EVENTS.SET_EMBED_CODE, selectedContentData.clickedVideo.embed_code);
-        this.mb.publish(OO.EVENTS.DISCOVERY_API.SEND_CLICK_EVENT, selectedContentData);
+      	if (selectedContentData.clickedVideo.hostedAtURL != "")
+      	{
+      		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
+      	}
+      	else
+      	{
+		    this.state.screenToShow = CONSTANTS.SCREEN.LOADING_SCREEN;
+		    this.renderSkin();
+		    this.mb.publish(OO.EVENTS.PAUSE);
+		    this.mb.publish(OO.EVENTS.SET_EMBED_CODE, selectedContentData.clickedVideo.embed_code);
+		    this.mb.publish(OO.EVENTS.DISCOVERY_API.SEND_CLICK_EVENT, selectedContentData);
+        }
       }
     },
 
