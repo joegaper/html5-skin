@@ -102,7 +102,7 @@
         "color": "white"
       }
     },
-    "showCountDownTimerOnEndScreen": true,
+    "showCountDownTimerOnEndScreen": false,
     "countDownTime": "10"
   },
   "shareScreen": {

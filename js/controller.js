@@ -1042,15 +1042,8 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     sendDiscoveryClickEvent: function(selectedContentData, isAutoUpNext) {
       this.state.upNextInfo.showing = false;
       if (isAutoUpNext){
-      	if (selectedContentData.clickedVideo.hostedAtURL != "")
-      	{
-      		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
-      	}
-      	else
-      	{
-        	this.state.upNextInfo.delayedContentData = selectedContentData;
-        	this.state.upNextInfo.delayedSetEmbedCodeEvent = true;
-        }
+      	/* don't redirect automatically at the end of the video */
+      	return;
       }
       else {
       	if (selectedContentData.clickedVideo.hostedAtURL != "")

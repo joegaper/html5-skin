@@ -2166,16 +2166,17 @@ var UpNextPanel = React.createClass({displayName: "UpNextPanel",
 
         React.createElement("div", {className: "contentMetadata"}, 
           React.createElement("div", {className: "upNextTitle"}, 
-            React.createElement(CountDownClock, React.__spread({},  this.props, {timeToShow: this.props.skinConfig.upNext.timeToShow, currentPlayhead: this.props.currentPlayhead})), 
 
             React.createElement("div", {className: "upNextTitleText text-truncate text-capitalize"}, 
-              upNextString, ": ", this.props.upNextInfo.upNextData.name
+              upNextString, ":"
             )
+            
           ), 
-
+          
           React.createElement("div", {className: "contentDescription text-truncate text-capitalize"}, 
-            this.props.upNextInfo.upNextData.description
+           this.props.upNextInfo.upNextData.name
           )
+          
         ), 
 
         React.createElement(CloseButton, React.__spread({},  this.props, 
@@ -3007,7 +3008,7 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
 
   if (OO.publicApi && OO.publicApi.VERSION) {
     // This variable gets filled in by the build script
-    OO.publicApi.VERSION.skin_version = "f07aa16cec8b6add4fd212965c406b2d3d3ec7d4";
+    OO.publicApi.VERSION.skin_version = "2101e3076b35c3aa17bc6c04cbe7f83208b85fa8";
   }
 
   var Html5Skin = function (mb, id) {
@@ -4031,15 +4032,8 @@ OO.plugin("Html5Skin", function (OO, _, $, W) {
     sendDiscoveryClickEvent: function(selectedContentData, isAutoUpNext) {
       this.state.upNextInfo.showing = false;
       if (isAutoUpNext){
-      	if (selectedContentData.clickedVideo.hostedAtURL != "")
-      	{
-      		parent.window.location.href = selectedContentData.clickedVideo.hostedAtURL;
-      	}
-      	else
-      	{
-        	this.state.upNextInfo.delayedContentData = selectedContentData;
-        	this.state.upNextInfo.delayedSetEmbedCodeEvent = true;
-        }
+      	/* don't redirect automatically at the end of the video */
+      	return;
       }
       else {
       	if (selectedContentData.clickedVideo.hostedAtURL != "")
