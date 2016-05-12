@@ -152,7 +152,7 @@
     "autoHide": true,
     "height": 60,
     "watermark": {
-      "imageResource": {"url": "/player/assets/images/Teton-Gravity-Research-Logo-player.png","androidResource" : "logo","iosResource" : "logo"},
+      "imageResource": {"url": "/player/assets/images/teton-gravity-research-logo-small-grey.png","androidResource" : "logo","iosResource" : "logo"},
       "clickUrl": "http://www.tetongravity.com/",
       "width": 500,
       "height": 81
