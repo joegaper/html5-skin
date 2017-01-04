@@ -14306,7 +14306,7 @@ OO.Ads.manager(function(_, $) {
         //For Vast versions that don't support the skipoffset attribute, we
         //want to use Ooyala's settings for displaying the skip ad button
           if (!isVPaid) {
-            this.amc.showSkipVideoAdButton(true);
+            this.amc.showSkipVideoAdButton(false);
           } else {
             this.amc.showSkipVideoAdButton(adSkippableState,
                             this.amc.adManagerSettings['linearAdSkipButtonStartTime'].toString());
